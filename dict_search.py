@@ -27,7 +27,7 @@ def search(d,key):
     while True:
         if key in d:
             return {key:d[key]}
-        for k,v in d.items():
+        for v in d.values():
             if isinstance(v,dict):
                 temp |= v
                 if true_count > 0:
