@@ -8,7 +8,6 @@ def search1(d,key):
         for v in d.values():
             if isinstance(v,dict):
                 temp |= v
-                true_count -= 1
             true_count += 1
         d = temp
         if len(d) == true_count and key not in d:
