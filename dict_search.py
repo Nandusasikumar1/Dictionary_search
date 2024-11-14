@@ -1,7 +1,7 @@
 c  = {1:{4:{8:{9:10,11:33}}},44:73,32:89,77:{23:34,66:89}}
 
 def search1(d,key):
-    while True:
+    while d:
         temp = {}
         if key in d:
             return {key:d[key]}
@@ -9,8 +9,8 @@ def search1(d,key):
             if isinstance(v,dict):
                 temp |= v
         d = temp
-        if not d:
-            return 'key not found'
+    return 'key not found'
+ 
  
 print(search1(c,676))
  
