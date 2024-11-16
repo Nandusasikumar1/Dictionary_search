@@ -13,7 +13,21 @@ def search1(d,key):
  
  
 print(search1(c,676))
- 
+
+
+def search1(d,key):
+    while d:
+        temp = {}
+        
+        for k,v in d.items():
+            if k == key:
+                return {k:v}
+            if isinstance(v,dict):
+                if key in v:
+                    return {key:v[key]}
+                temp |= v
+        d = temp
+    return 'key not found'
 
 
 print(search(c,7))
