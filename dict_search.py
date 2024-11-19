@@ -14,6 +14,34 @@ def search1(d,key):
  
 print(search1(c,676))
 
+c = {2:{3:4,7:8,53:{877:231}},99:{23:9,77:{51:{812:77}}}}
+def keypath(d,key):
+    path = {}
+    level = 1
+    while d:
+        level_name = f'level {level}'
+        temp = {}
+        if key in d:
+            path[level_name] = key
+            return {key:d[key]},path
+        for k,v in d.items():
+            if isinstance(v,dict):
+                temp |= v
+            
+            if not level_name in path:
+                path[level_name]=[k]
+            else:
+                path[level_name].append(k)
+           
+        
+        level+=1
+        d = temp
+    else:
+        return 'key not found',path
+
+
+result,path=keypath(c,51)
+print(path)
 
 def search1(d,key):
     while d:
